@@ -49,7 +49,7 @@ class Normalize(object):
 class Resize(object):
     # Resize the input to the given size, 'size' is a 2-element tuple or list in the order of (h, w).
     def __init__(self, size, resize_label = True):
-        # assert (isinstance(size, collections.abc.Iterable) and len(size) == 2)
+        assert (isinstance(size, collections.abc.Iterable) and len(size) == 2)
         self.size = size
         self.resize_label = resize_label
 
