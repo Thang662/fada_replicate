@@ -13,7 +13,7 @@ def build_transform(cfg, mode, is_source):
         if cfg.INPUT.HORIZONTAL_FLIP_PROB_TRAIN > 0:
             trans_list = [transform.RandomHorizontalFlip(p = cfg.INPUT.HORIZONTAL_FLIP_PROB_TRAIN),] + trans_list
         if cfg.INPUT.INPUT_SCALES_TRAIN[0] == cfg.INPUT.INPUT_SCALES_TRAIN[1] and cfg.INPUT.INPUT_SCALES_TRAIN[0] == 1:
-            trans_list = [transform.Resize((h, w)),] + trans_list
+            trans_list = [transform.Resize(size = (h, w)),] + trans_list
         else:
             trans_list = [
                 transform.RandomScale(scale = cfg.INPUT.INPUT_SCALES_TRAIN),
