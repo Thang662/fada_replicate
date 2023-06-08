@@ -8,7 +8,7 @@ class DatasetCatalog(object):
     DATASET_DIR = "/kaggle/inputs"
     DATASETS = {
         "gta5_train": {
-            "data_dir": "gtav-dataset",
+            "data_dir": "gta5",
             "data_list": "gta5_train_list.txt"
         },
         "synthia_train": {
@@ -37,7 +37,7 @@ class DatasetCatalog(object):
             attrs = DatasetCatalog.DATASETS[name]
             args = dict(
                 root = os.path.join(data_dir, attrs["data_dir"]),
-                data_list = os.path.join('.', attrs["data_list"]),
+                data_list = os.path.join(data_dir, attrs["data_list"]),
             )
             return GTA5DataSet(args["root"], args["data_list"], max_iters = max_iters, num_classes = num_classes, split = mode, transform = transform)
         elif "synthia" in name:
