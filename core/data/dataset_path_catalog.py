@@ -39,6 +39,7 @@ class DatasetCatalog(object):
                 root = os.path.join(data_dir, attrs["data_dir"]),
                 data_list = os.path.join('.', attrs["data_list"]),
             )
+            print(args)
             return GTA5DataSet(args["root"], args["data_list"], max_iters = max_iters, num_classes = num_classes, split = mode, transform = transform)
         elif "synthia" in name:
             data_dir = DatasetCatalog.DATASET_DIR
