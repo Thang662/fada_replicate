@@ -8,7 +8,7 @@ import torchvision
 from torch.utils import data
 from PIL import Image
 
-class cityscapesData(data.Dataset):
+class cityscapesDataSet(data.Dataset):
     def __init__(
             self,
             data_root,
