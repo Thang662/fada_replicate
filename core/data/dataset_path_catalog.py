@@ -1,5 +1,5 @@
 import os 
-# from .cityscapes import cityscapesDataSet
+from .cityscapes import cityscapesDataSet
 from .cityscapes_self_distill import cityscapesSelfDistillDataSet
 from .synthia import synthiaDataSet
 from .gta5 import GTA5DataSet
