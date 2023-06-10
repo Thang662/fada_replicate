@@ -39,7 +39,7 @@ class DatasetCatalog(object):
             attrs = DatasetCatalog.DATASETS[name]
             args = dict(
                 root = os.path.join(data_dir, attrs["data_dir"]),
-                data_list = os.path.join('../../data', attrs["data_list"]),
+                data_list = os.path.join('data', attrs["data_list"]),
             )
             print(args)
             print(glob(pathname = '**'))
