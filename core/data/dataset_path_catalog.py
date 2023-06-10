@@ -3,6 +3,8 @@ from .cityscapes import cityscapesDataSet
 from .cityscapes_self_distill import cityscapesSelfDistillDataSet
 from .synthia import synthiaDataSet
 from .gta5 import GTA5DataSet
+from pathlib import Path
+from glob import glob
 
 class DatasetCatalog(object):
     DATASET_DIR = "/kaggle/inputs"
@@ -40,6 +42,9 @@ class DatasetCatalog(object):
                 data_list = os.path.join('../../data', attrs["data_list"]),
             )
             print(args)
+            print(glob(pathname = './'))
+            print(glob(pathname = '../'))
+            print(glob(pathname = '../../'))
             return GTA5DataSet(args["root"], args["data_list"], max_iters = max_iters, num_classes = num_classes, split = mode, transform = transform)
         elif "synthia" in name:
             data_dir = DatasetCatalog.DATASET_DIR
