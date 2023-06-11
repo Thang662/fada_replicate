@@ -190,6 +190,7 @@ def train(cfg, local_rank, distributed):
         
         tgt_D_pred = model_D(tgt_fea, tgt_size)
         loss_adv_tgt = 0.001*soft_label_cross_entropy(tgt_D_pred, torch.cat((tgt_soft_label, torch.zeros_like(tgt_soft_label)), dim = 1))
+        print(loss_adv_tgt)
         loss_adv_tgt.backward()
 
         optimizer_fea.step()
@@ -200,10 +201,12 @@ def train(cfg, local_rank, distributed):
         
         src_D_pred = model_D(src_fea.detach(), src_size)
         loss_D_src = 0.5*soft_label_cross_entropy(src_D_pred, torch.cat((src_soft_label, torch.zeros_like(src_soft_label)), dim = 1))
+        print(loss_D_src)
         loss_D_src.backward()
 
         tgt_D_pred = model_D(tgt_fea.detach(), tgt_size)
         loss_D_tgt = 0.5*soft_label_cross_entropy(tgt_D_pred, torch.cat((torch.zeros_like(tgt_soft_label), tgt_soft_label), dim = 1))
+        print(loss_D_tgt)
         loss_D_tgt.backward()
 
         # torch.distributed.barrier()
