@@ -1,6 +1,6 @@
 import torch.nn as nn
-from mmcv.runner import load_checkpoint
-from torchvision.models.utils import load_state_dict_from_url
+# from mmcv.runner import load_checkpoint
+from torchvision.models import load_state_dict_from_url
 
 BatchNorm = nn.BatchNorm2d
 
@@ -210,8 +210,8 @@ class ResNet(nn.Module):
 
 def _resnet(arch, block, layers, pretrained, progress, pretrained_weights, **kwargs):
     model = ResNet(block, layers, **kwargs)
-    if pretrained:
-        load_checkpoint(model, pretrained_weights, map_location = 'cpu')
+    # if pretrained:
+    #     load_checkpoint(model, pretrained_weights, map_location = 'cpu')
     return model
 
 
