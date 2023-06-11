@@ -1,6 +1,6 @@
 import torch.nn as nn
 # from mmcv.runner import load_checkpoint
-from torchvision.models import load_state_dict_from_url
+# from torchvision.models import load_state_dict_from_url
 
 BatchNorm = nn.BatchNorm2d
 
