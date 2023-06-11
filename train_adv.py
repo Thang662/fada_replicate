@@ -168,6 +168,7 @@ def train(cfg, local_rank, distributed):
             
         src_fea = feature_extractor(src_input)
         src_pred = classifier(src_fea, src_size)
+        print(src_fea, src_pred)
         temperature = 1.8
         src_pred = src_pred.div(temperature)
         loss_seg = criterion(src_pred, src_label)
