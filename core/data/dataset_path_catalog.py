@@ -7,7 +7,7 @@ from pathlib import Path
 from glob import glob
 
 class DatasetCatalog(object):
-    DATASET_DIR = "/kaggle/inputs"
+    DATASET_DIR = "/kaggle/input"
     DATASETS = {
         "gta5_train": {
             "data_dir": "gtav-dataset",
@@ -39,17 +39,17 @@ class DatasetCatalog(object):
             attrs = DatasetCatalog.DATASETS[name]
             args = dict(
                 root = os.path.join(data_dir, attrs["data_dir"]),
-                data_list = os.path.join('data', attrs["data_list"]),
+                data_list = os.path.join('/kaggle/working/fada_replicate/data', attrs["data_list"]),
             )
-            print(args)
-            print(glob(pathname = '**'))
+#             print(args)
+#             print(glob(pathname = '**'))
             return GTA5DataSet(args["root"], args["data_list"], max_iters = max_iters, num_classes = num_classes, split = mode, transform = transform)
         elif "synthia" in name:
             data_dir = DatasetCatalog.DATASET_DIR
             attrs = DatasetCatalog.DATASETS[name]
             args = dict(
                 root = os.path.join(data_dir, attrs["data_dir"]),
-                data_list = os.path.join(data_dir, attrs["data_list"]),
+                data_list = os.path.join('/kaggle/working/fada_replicate/data', attrs["data_list"]),
             )
             return synthiaDataSet(args["root"], args["data_list"], max_iters = max_iters, num_classes = num_classes, split = mode, transform = transform)
         elif "cityscapes" in name:
@@ -57,8 +57,9 @@ class DatasetCatalog(object):
             attrs = DatasetCatalog.DATASETS[name]
             args = dict(
                 root = os.path.join(data_dir, attrs["data_dir"]),
-                data_list = os.path.join(data_dir, attrs["data_list"]),
+                data_list = os.path.join('/kaggle/working/fada_replicate/data', attrs["data_list"]),
             )
+            print(args)
             if 'distill' in name:
                 args['label_dir'] = os.path.join(data_dir, attrs["label_dir"])
                 return cityscapesSelfDistillDataSet(args["root"], args["data_list"], args['label_dir'], max_iters=max_iters, num_classes=num_classes, split=mode, transform=transform)
