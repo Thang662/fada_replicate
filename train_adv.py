@@ -145,16 +145,16 @@ def train(cfg, local_rank, distributed):
 #             torch.distributed.barrier()
         data_time = time.time() - end
 
-        current_lr = adjust_learning_rate(cfg.SOLVER.LR_METHOD, cfg.SOLVER.BASE_LR, iteration, max_iters, power = cfg.SOLVER.LR_POWER)
-        current_lr_D = adjust_learning_rate(cfg.SOLVER.LR_METHOD, cfg.SOLVER.BASE_LR_D, iteration, max_iters, power = cfg.SOLVER.LR_POWER)
-        print('current_lr: ', current_lr)
-        print('current_lr_D: ', current_lr_D)
-        for index in range(len(optimizer_fea.param_groups)):
-            optimizer_fea.param_groups[index]['lr'] = current_lr
-        for index in range(len(optimizer_cls.param_groups)):
-            optimizer_cls.param_groups[index]['lr'] = current_lr*10
-        for index in range(len(optimizer_D.param_groups)):
-            optimizer_D.param_groups[index]['lr'] = current_lr_D
+        # current_lr = adjust_learning_rate(cfg.SOLVER.LR_METHOD, cfg.SOLVER.BASE_LR, iteration, max_iters, power = cfg.SOLVER.LR_POWER)
+        # current_lr_D = adjust_learning_rate(cfg.SOLVER.LR_METHOD, cfg.SOLVER.BASE_LR_D, iteration, max_iters, power = cfg.SOLVER.LR_POWER)
+        # print('current_lr: ', current_lr)
+        # print('current_lr_D: ', current_lr_D)
+        # for index in range(len(optimizer_fea.param_groups)):
+        #     optimizer_fea.param_groups[index]['lr'] = current_lr
+        # for index in range(len(optimizer_cls.param_groups)):
+        #     optimizer_cls.param_groups[index]['lr'] = current_lr*10
+        # for index in range(len(optimizer_D.param_groups)):
+        #     optimizer_D.param_groups[index]['lr'] = current_lr_D
             
 #       torch.distributed.barrier()
 
