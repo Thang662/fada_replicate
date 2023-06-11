@@ -11,7 +11,7 @@ import torch
 import torch.nn.functional as F
 
 from core.configs import cfg
-from core.datasets import build_dataset
+from core.data import build_dataset
 from core.models import build_model, build_adversarial_discriminator, build_feature_extractor, build_classifier
 from core.solver import adjust_learning_rate
 from core.utils.misc import mkdir, AverageMeter, intersectionAndUnionGPU

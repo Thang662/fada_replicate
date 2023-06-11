@@ -5,13 +5,13 @@ from .feature_extractor import vgg_feature_extractor, resnet_feature_extractor
 from .classifier import ASPP_Classifier_V2
 from .discriminator import *
 
-def build_model(cfg):
-    model_name, backbone_name = cfg.MODEL.NAME.split('_')
-    if model_name == 'deeplab':
-        model = deeplab(backbone_name, cfg.MODEL.NUM_CLASSES, pretrained_weights = cfg.MODEL.WEIGHTS, freeze_bn = cfg.MODEL.FREEZE_BN)
-    else:
-        raise NotImplementedError
-    return model
+# def build_model(cfg):
+#     model_name, backbone_name = cfg.MODEL.NAME.split('_')
+#     if model_name == 'deeplab':
+#         model = deeplab(backbone_name, cfg.MODEL.NUM_CLASSES, pretrained_weights = cfg.MODEL.WEIGHTS, freeze_bn = cfg.MODEL.FREEZE_BN)
+#     else:
+#         raise NotImplementedError
+#     return model
 
 def build_feature_extractor(cfg):
     model_name, backbone_name = cfg.MODEL.NAME.split('_')
