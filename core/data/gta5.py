@@ -32,7 +32,7 @@ class GTA5DataSet(data.Dataset):
         self.img_ids = [i_id.strip() for i_id in content]
         
         if max_iters is not None:
-            self.label_to_file, self.file_to_label = pickle.load(open(osp.join(data_root, "gtav_label_info.p"), "rb"))
+            self.label_to_file, self.file_to_label = pickle.load(open(os.path.join('/kaggle/working/fada_replicate/data', "gtav_label_info.p"), "rb"))
             self.img_ids = []
             SUB_EPOCH_SIZE = 3000
             tmp_list = []
@@ -57,15 +57,15 @@ class GTA5DataSet(data.Dataset):
                     c_file = self.label_to_file[c][ind[c]]
                     tmp_list.append(c_file)
                     ind[c] = ind[c]+1
-                    cur_class_dist[self.file_to_label[c_file]] += 1
+                    cur_class_dist[self.file_to_label[c_file]] = 1
 
             self.img_ids = tmp_list
 
         for name in self.img_ids:
             self.data_list.append(
                 {
-                    "img": os.path.join(self.data_root, "images/%s" % name),
-                    "label": os.path.join(self.data_root, "labels/%s" % name),
+                    "img": os.path.join(self.data_root, "GTAV/images/%s" % name),
+                    "label": os.path.join(self.data_root, "GTAV/labels/%s" % name),
                     "name": name,
                 }
             )

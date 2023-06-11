@@ -36,7 +36,7 @@ class cityscapesDataSet(data.Dataset):
                     ),
                     "label": os.path.join(
                         self.data_root,
-                        "gtFine/%s/%s"
+                        "gtFine_trainvaltest/gtFine/%s/%s"
                         % (
                             self.split,
                             name.split("_leftImg8bit")[0]

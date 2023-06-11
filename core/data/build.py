@@ -28,7 +28,7 @@ def build_transform(cfg, mode, is_source):
                     hue = cfg.INPUT.HUE,
                 ),
             ] + trans_list
-            trans = transform.Compose(trans_list)
+        trans = transform.Compose(trans_list)
     else:
         w, h = cfg.INPUT.INPUT_SIZE_TEST
         trans = transform.Compose([
