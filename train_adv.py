@@ -162,6 +162,7 @@ def train(cfg, local_rank, distributed):
         src_input = src_input.cuda(non_blocking = True)
         src_label = src_label.cuda(non_blocking = True).long()
         tgt_input = tgt_input.cuda(non_blocking = True)
+        print(src_input, src_label, tgt_input)
             
         src_size = src_input.shape[-2:]
         tgt_size = tgt_input.shape[-2:]
