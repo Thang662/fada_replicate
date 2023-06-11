@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
-from mmcv.runner import load_checkpoint
-from torchvision.models.utils import load_state_dict_from_url
+# from mmcv.runner import load_checkpoint
+# from torchvision.models.utils import load_state_dict_from_url
 
 
 __all__ = [
@@ -89,8 +89,8 @@ def _vgg(arch, cfg, batch_norm, pretrained, progress, pretrained_weights, **kwar
     if pretrained:
         kwargs['init_weights'] = False
     model = VGG(make_layers(cfgs[cfg], batch_norm = batch_norm), **kwargs)
-    if pretrained:
-        load_checkpoint(model, pretrained_weights, map_location = 'cpu')
+    # if pretrained:
+        # load_checkpoint(model, pretrained_weights, map_location = 'cpu')
     return model
 
 
