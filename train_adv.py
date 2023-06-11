@@ -125,8 +125,8 @@ def train(cfg, local_rank, distributed):
         src_train_sampler = None
         tgt_train_sampler = None
     
-    src_train_loader = torch.utils.data.DataLoader(src_train_data, batch_size = batch_size, shuffle = (src_train_sampler is None), num_workers = 4, pin_memory = True, sampler = src_train_sampler, drop_last = True)
-    tgt_train_loader = torch.utils.data.DataLoader(tgt_train_data, batch_size = batch_size, shuffle = (tgt_train_sampler is None), num_workers = 4, pin_memory = True, sampler = tgt_train_sampler, drop_last = True)
+    src_train_loader = torch.utils.data.DataLoader(src_train_data, batch_size = batch_size, shuffle = (src_train_sampler is None), num_workers = 2, pin_memory = True, sampler = src_train_sampler, drop_last = True)
+    tgt_train_loader = torch.utils.data.DataLoader(tgt_train_data, batch_size = batch_size, shuffle = (tgt_train_sampler is None), num_workers = 2, pin_memory = True, sampler = tgt_train_sampler, drop_last = True)
 
     criterion = torch.nn.CrossEntropyLoss(ignore_index = 255)
     bce_loss = torch.nn.BCELoss(reduction = 'none')
