@@ -178,6 +178,7 @@ def train(cfg, local_rank, distributed):
         src_pred = src_pred.div(temperature)
         loss_seg = criterion(src_pred, src_label)
         print(src_label, src_pred)
+        print(src_label.shape, src_pred.shape)
         print('💩' * 50)
         print(loss_seg)
         loss_seg.backward()
