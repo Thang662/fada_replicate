@@ -167,7 +167,7 @@ def train(cfg, local_rank, distributed):
         print(src_input, src_label, tgt_input)
         print('*****************************************************************************************')
             
-        src_size = src_input.shape[-2:]
+        src_size = src_label.shape[-2:]
         tgt_size = tgt_input.shape[-2:]
             
         src_fea = feature_extractor(src_input)
