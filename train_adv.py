@@ -75,7 +75,7 @@ def train(cfg, local_rank, distributed):
         )
         torch.autograd.set_detect_anomaly(True)
         torch.distributed.barrier()
-    
+    torch.autograd.set_detect_anomaly(True)
     optimizer_fea = torch.optim.SGD(feature_extractor.parameters(), lr = cfg.SOLVER.BASE_LR, momentum = cfg.SOLVER.MOMENTUM, weight_decay = cfg.SOLVER.WEIGHT_DECAY)
     optimizer_fea.zero_grad()
     
