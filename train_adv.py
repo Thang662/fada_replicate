@@ -176,6 +176,8 @@ def train(cfg, local_rank, distributed):
         temperature = 1.8
         src_pred = src_pred.div(temperature)
         loss_seg = criterion(src_pred, src_label)
+        print(src_label, src_pred)
+        print('💩' * 20)
         print(loss_seg)
         loss_seg.backward()
         # torch.distributed.barrier()
